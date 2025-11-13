@@ -1,0 +1,19 @@
+{
+  "feature_names": [
+    "hour",
+    "day_of_week",
+    "is_weekend",
+    "is_rush_hour",
+    "hour_sin",
+    "hour_cos",
+    "intersection_id_encoded"
+  ],
+  "metrics": {
+    "rmse": 6.784496270301068,
+    "r2": 0.7440183909633331,
+    "mse": 46.0293896417291
+  },
+  "model_type": "RandomForestRegressor",
+  "training_date": "2025-11-13T10:03:18.551429",
+  "feature_count": 7
+}

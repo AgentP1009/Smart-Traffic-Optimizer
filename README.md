@@ -38,7 +38,7 @@ Copy code
 python -m venv venv
 source venv/bin/activate # Linux / Mac
 venv\Scripts\activate # Windows
-
+.\ids_env\Scripts\activate 
 markdown
 Copy code
 
