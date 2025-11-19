@@ -1,0 +1,23 @@
+﻿# Add this at the top of final_api.py (after existing imports)
+import sys
+import os
+
+# Add paths for the new structure
+sys.path.append('../01_core_engine')
+sys.path.append('../02_ai_vision/vision_engine')
+sys.path.append('../02_ai_vision/fusion_engine')
+
+try:
+    from optimization_engine import TrafficOptimizer
+    OPTIMIZATION_AVAILABLE = True
+except ImportError as e:
+    print(f\"Optimization engine not available: {e}\")
+    OPTIMIZATION_AVAILABLE = False
+
+try:
+    from vision_engine.lightweight_detector import LightweightTrafficAnalyzer
+    from fusion_engine.simple_fusion import SimpleFusionEngine
+    VISION_AVAILABLE = True
+except ImportError as e:
+    print(f\"Vision modules not available: {e}\")
+    VISION_AVAILABLE = False

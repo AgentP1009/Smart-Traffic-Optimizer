@@ -1,0 +1,46 @@
+﻿
+# ADD THESE IMPORTS AT THE TOP
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), 'vision_engine'))
+sys.path.append(os.path.join(os.path.dirname(__file__), 'fusion_engine'))
+
+from vision_engine.lightweight_detector import LightweightTrafficAnalyzer
+from fusion_engine.simple_fusion import SimpleFusionEngine
+
+# ADD THIS NEW ROUTE TO YOUR EXISTING final_api.py
+@app.route('/api/vision-optimize', methods=['POST'])
+def vision_optimize():
+    '''Enhanced optimization using camera input'''
+    try:
+        data = request.get_json()
+        intersection_id = data.get('intersection_id', 'default')
+        
+        # Get vision analysis
+        vision_ai = LightweightTrafficAnalyzer()
+        
+        if 'image_url' in data:
+            # Analyze from image file
+            vision_data = vision_ai.analyze_traffic(data['image_url'])
+        else:
+            # Analyze from webcam
+            vision_data = vision_ai.analyze_traffic()
+        
+        # Get existing traffic data (simulate your PostgreSQL data)
+        existing_data = {'current_green_time': 30}  # Replace with your actual data
+        
+        # Fusion with existing system
+        fusion = SimpleFusionEngine()
+        optimization = fusion.fuse_data(vision_data, existing_data)
+        
+        return jsonify({
+            'status': 'success',
+            'intersection_id': intersection_id,
+            'vision_analysis': vision_data,
+            'optimization': optimization,
+            'system': 'Lightweight AI Vision'
+        })
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
