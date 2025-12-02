@@ -138,8 +138,8 @@ curl http://localhost:8000/api/ai-models/
 Start Live Camera Detection
 
 ```
-curl -X POST http://localhost:8000/api/live-detection/start/ \
-  -F "camera_type=webcam" \
+curl.exe -X POST http://localhost:8000/api/live-detection/start/ `
+  -F "camera_type=webcam" `
   -F "camera_url=0"
 ```
 
