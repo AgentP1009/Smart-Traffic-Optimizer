@@ -1,0 +1,66 @@
+﻿# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+ids_env/
+venv/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Media & outputs
+videos/
+*.mp4
+*.avi
+*.mov
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.part
+*.ytdl
+temp_frame.jpg
+
+# Logs & temp files
+*.log
+logs/
+temp_*
+test_image.*
+youtube_video.mp4
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Django
+*.sqlite3
+db.sqlite3
+
+# Training data
+05_models/training_engine/src/cambodia_traffic_dataset.json
+
+# API test outputs
+04_api/complete_workflow_results.json
+04_api/optimization_charts.png
+04_api/optimization_visualization.png
+04_api/academic_project_report.txt
+04_api/optimization_report.txt
+04_api/test_bus.jpg
+04_api/test_traffic.jpg
+04_api/temp_frame.jpg
+
+# Test outputs
+07_tests/test_traffic.jpg
